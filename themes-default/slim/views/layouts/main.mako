@@ -74,7 +74,6 @@
         <script type="text/javascript" src="js/lib/axios.min.js?${sbPID}"></script>
         <script type="text/javascript" src="js/lib/lazyload.js?${sbPID}"></script>
         <script type="text/javascript" src="js/parsers.js?${sbPID}"></script>
-        <script type="text/javascript" src="js/root-dirs.js?${sbPID}"></script>
         <script type="text/javascript" src="js/api.js?${sbPID}"></script>
         <script type="text/javascript" src="js/core.js?${sbPID}"></script>
 
@@ -128,6 +127,7 @@
         <%include file="/vue-components/saved-message.mako"/>
         <%include file="/vue-components/quality-chooser.mako"/>
         <%include file="/vue-components/language-select.mako"/>
+        <%include file="/vue-components/root-dirs.mako"/>
         <script>window.routes = [];</script>
         <%block name="scripts" />
         <script>
