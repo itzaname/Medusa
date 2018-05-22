@@ -260,7 +260,7 @@ class BTNProvider(TorrentProvider):
                           {'msg': message})
 
         except (IOError, ValueError) as error:
-            log.warning('Error while accessing provider. Error: {msg}', {'msg': error})
+            log.warning('Error while accessing provider. Error: {msg!r}', {'msg': error})
         return parsed_json
 
 
