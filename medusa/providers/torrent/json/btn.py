@@ -252,13 +252,15 @@ class BTNProvider(TorrentProvider):
                 log.warning('Incorrect authentication credentials.')
             elif message == (-32002, 'Call Limit Exceeded'):
                 log.warning('You have exceeded the limit of 150 calls per hour.')
+            elif message[1] in (524, ):
+                log.warning('Provider is currently unavailable. Error: {code} {text}',
+                            {'code': message[1], 'text': message[2]})
             else:
                 log.error('JSON-RPC protocol error while accessing provider. Error: {msg!r}',
                           {'msg': message})
 
-        except (socket.error, socket.timeout, ValueError) as error:
-            log.warning('Error while accessing provider.'
-                        ' Error: {msg}', {'msg': error})
+        except (IOError, ValueError) as error:
+            log.warning('Error while accessing provider. Error: {msg}', {'msg': error})
         return parsed_json
 
 
